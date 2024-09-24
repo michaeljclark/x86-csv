@@ -1,9 +1,9 @@
 ﻿Instruction,Opcode,Valid 64-bit,Valid 32-bit,Valid 16-bit,Feature Flags,Operand 1,Operand 2,Operand 3,Operand 4,Tuple Type,Description
 "AAA","37","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AL after addition."
 "AAD","D5 0A","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AX before division."
-"AAD imm8","D5 ib","Invalid","Valid","Valid","","NA","NA","NA","NA","","Adjust AX before division to number base imm8."
+"AAD imm8","D5 ib","Invalid","Valid","Valid","","imm8","NA","NA","NA","","Adjust AX before division to number base imm8."
 "AAM","D4 0A","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AX after multiply."
-"AAM imm8","D4 ib","Invalid","Valid","Valid","","NA","NA","NA","NA","","Adjust AX after multiply to number base imm8."
+"AAM imm8","D4 ib","Invalid","Valid","Valid","","imm8","NA","NA","NA","","Adjust AX after multiply to number base imm8."
 "AAS","3F","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AL after subtraction."
 "ADC AL, imm8","14 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm8 to AL."
 "ADC AX, imm16","15 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm16 to AX."
