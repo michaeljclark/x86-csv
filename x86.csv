@@ -718,8 +718,8 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "INC r/m16","FF /0","Valid","Valid","Valid","","ModRM:r/m (r, w)","NA","NA","NA","","Increment r/m word by 1."
 "INC r/m32","FF /0","Valid","Valid","Valid","","ModRM:r/m (r, w)","NA","NA","NA","","Increment r/m doubleword by 1."
 "INC r/m64","REX.W + FF /0","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","NA","NA","NA","","Increment r/m quadword by 1."
-"INC r16","40 +rw","Invalid","Valid","Valid","","opcode +rd (r, w)","NA","NA","NA","","Increment word register by 1."
-"INC r32","40 +rd","Invalid","Valid","Valid","","opcode +rd (r, w)","NA","NA","NA","","Increment doubleword register by 1."
+"INC r16","40+rw","Invalid","Valid","Valid","","opcode +rd (r, w)","NA","NA","NA","","Increment word register by 1."
+"INC r32","40+rd","Invalid","Valid","Valid","","opcode +rd (r, w)","NA","NA","NA","","Increment doubleword register by 1."
 "INS m8, DX","6C","Valid","Valid","Valid","","NA","NA","NA","NA","","Input byte from I/O port specified in DX into memory location specified in ES:(E)DI or RDI."
 "INS m16, DX","6D","Valid","Valid","Valid","","NA","NA","NA","NA","","Input word from I/O port specified in DX into memory location specified in ES:(E)DI or RDI."
 "INS m32, DX","6D","Valid","Valid","Valid","","NA","NA","NA","NA","","Input doubleword from I/O port specified in DX into memory location specified in ES:(E)DI or RDI."
@@ -1022,11 +1022,11 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "MOV moffs16,AX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AX to (seg:offset).
 "MOV moffs32,EAX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move EAX to (seg:offset).
 "MOV moffs64,RAX",REX.W + A3,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move RAX to (offset).
-"MOV r8,imm8",B0 +rb ib,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
-"MOV r8,imm8",REX + B0 +rb ib,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
-"MOV r16,imm16",B8 +rw iw,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm16 to r16.
-"MOV r32,imm32",B8 +rd id,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm32 to r32.
-"MOV r64,imm64",REX.W + B8 +rd io,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm64 to r64.
+"MOV r8,imm8",B0+rb ib,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
+"MOV r8,imm8",REX + B0+rb ib,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
+"MOV r16,imm16",B8+rw iw,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm16 to r16.
+"MOV r32,imm32",B8+rd id,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm32 to r32.
+"MOV r64,imm64",REX.W + B8+rd io,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm64 to r64.
 "MOV r/m8,imm8",C6 /0 ib,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm8 to r/m8.
 "MOV r/m8,imm8",REX + C6 /0 ib,Valid,Invalid,Invalid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm8 to r/m8.
 "MOV r/m16,imm16",C7 /0 iw,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm16 to r/m16.
@@ -1864,9 +1864,9 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "POP r/m16","8F /0","Valid","Valid","Valid","","ModRM:r/m (w)","NA","NA","NA","","Pop top of stack into m16; increment stack pointer."
 "POP r/m32","8F /0","Invalid","Valid","Valid","","ModRM:r/m (w)","NA","NA","NA","","Pop top of stack into m32; increment stack pointer."
 "POP r/m64","8F /0","Valid","Invalid","Invalid","","ModRM:r/m (w)","NA","NA","NA","","Pop top of stack into m64; increment stack pointer. Cannot encode 32-bit operand size."
-"POP r16","58 +rw","Valid","Valid","Valid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r16; increment stack pointer."
-"POP r32","58 +rd","Invalid","Valid","Valid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r32; increment stack pointer."
-"POP r64","58 +rd","Valid","Invalid","Invalid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r64; increment stack pointer. Cannot encode 32-bit operand size."
+"POP r16","58+rw","Valid","Valid","Valid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r16; increment stack pointer."
+"POP r32","58+rd","Invalid","Valid","Valid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r32; increment stack pointer."
+"POP r64","58+rd","Valid","Invalid","Invalid","","opcode +rd (w)","NA","NA","NA","","Pop top of stack into r64; increment stack pointer. Cannot encode 32-bit operand size."
 "POP DS","1F","Invalid","Valid","Valid","","NA","NA","NA","NA","","Pop top of stack into DS; increment stack pointer."
 "POP ES","07","Invalid","Valid","Valid","","NA","NA","NA","NA","","Pop top of stack into ES; increment stack pointer."
 "POP SS","17","Invalid","Valid","Valid","","NA","NA","NA","NA","","Pop top of stack into SS; increment stack pointer."
