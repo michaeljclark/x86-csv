@@ -1012,11 +1012,11 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "MOV r/m64,Sreg",REX.W + 8C /r,Valid,Invalid,Invalid,,ModRM:r/m (w),ModRM:reg (r),NA,NA,,Move zero extended 16-bit segment register to r/m64.
 "MOV Sreg,r/m16",8E /r,Valid,Valid,Valid,,ModRM:reg (w),ModRM:r/m (r),NA,NA,,Move r/m16 to segment register.
 "MOV Sreg,r/m64",REX.W + 8E /r,Valid,Invalid,Invalid,,ModRM:reg (w),ModRM:r/m (r),NA,NA,,Move lower 16 bits of r/m64 to segment register.
-"MOV AL,moffs8",A0,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move byte at (seg:offset) to AL.
-"MOV AL,moffs8",REX.W + A0,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move byte at (offset) to AL.
-"MOV AX,moffs16",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move word at (seg:offset) to AX.
-"MOV EAX,moffs32",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move doubleword at (seg:offset) to EAX.
-"MOV RAX,moffs64",REX.W + A1,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move quadword at (offset) to RAX.
+"MOV AL,moffs8",A0,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs (r),NA,NA,,Move byte at (seg:offset) to AL.
+"MOV AL,moffs8",REX.W + A0,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs (r),NA,NA,,Move byte at (offset) to AL.
+"MOV AX,moffs16",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs (r),NA,NA,,Move word at (seg:offset) to AX.
+"MOV EAX,moffs32",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs (r),NA,NA,,Move doubleword at (seg:offset) to EAX.
+"MOV RAX,moffs64",REX.W + A1,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs (r),NA,NA,,Move quadword at (offset) to RAX.
 "MOV moffs8,AL",A2,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AL to (seg:offset).
 "MOV moffs8,AL",REX.W + A2,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AL to (offset).
 "MOV moffs16,AX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AX to (seg:offset).
