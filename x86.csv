@@ -5,10 +5,10 @@
 "AAM","D4 0A","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AX after multiply."
 "AAM imm8","D4 ib","Invalid","Valid","Valid","","NA","NA","NA","NA","","Adjust AX after multiply to number base imm8."
 "AAS","3F","Invalid","Valid","Valid","","NA","NA","NA","NA","","ASCII adjust AL after subtraction."
-"ADC AL, imm8","14 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add with carry imm8 to AL."
-"ADC AX, imm16","15 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add with carry imm16 to AX."
-"ADC EAX, imm32","15 id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add with carry imm32 to EAX."
-"ADC RAX, imm32","REX.W + 15 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add with carry imm32 sign extended to 64- bits to RAX."
+"ADC AL, imm8","14 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm8 to AL."
+"ADC AX, imm16","15 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm16 to AX."
+"ADC EAX, imm32","15 id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm32 to EAX."
+"ADC RAX, imm32","REX.W + 15 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add with carry imm32 sign extended to 64- bits to RAX."
 "ADC r/m8, imm8","80 /2 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add with carry imm8 to r/m8."
 "ADC r/m8 , imm8","REX + 80 /2 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add with carry imm8 to r/m8."
 "ADC r/m16, imm16","81 /2 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add with carry imm16 to r/m16."
@@ -29,10 +29,10 @@
 "ADC r64, r/m64","REX.W + 13 /r","Valid","Invalid","Invalid","","ModRM:reg (r, w)","ModRM:r/m (r)","NA","NA","","Add with CF r/m64 to r64."
 "ADCX r32, r/m32","66 0F 38 F6 /r","Valid","Valid","Invalid","ADX","ModRM:reg (r, w)","ModRM:r/m (r)","NA","NA","","Unsigned addition of r32 with CF, r/m32 to r32, writes CF."
 "ADCX r64, r/m64","66 REX.w 0F 38 F6 /r","Valid","Invalid","Invalid","ADX","ModRM:reg (r, w)","ModRM:r/m (r)","NA","NA","","Unsigned addition of r64 with CF, r/m64 to r64, writes CF."
-"ADD AL, imm8","04 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add imm8 to AL."
-"ADD AX, imm16","05 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add imm16 to AX."
-"ADD EAX, imm32","05 id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add imm32 to EAX."
-"ADD RAX, imm32","REX.W + 05 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8","NA","NA","","Add imm32 sign-extended to 64-bits to RAX."
+"ADD AL, imm8","04 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add imm8 to AL."
+"ADD AX, imm16","05 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add imm16 to AX."
+"ADD EAX, imm32","05 id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add imm32 to EAX."
+"ADD RAX, imm32","REX.W + 05 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","Add imm32 sign-extended to 64-bits to RAX."
 "ADD r/m8, imm8","80 /0 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add imm8 to r/m8."
 "ADD r/m8 , imm8","REX + 80 /0 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add sign-extended imm8 to r/m8."
 "ADD r/m16, imm16","81 /0 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","Add imm16 to r/m16."
@@ -89,10 +89,10 @@
 "VAESIMC xmm1, xmm2/m128","VEX.128.66.0F38.WIG DB /r","Valid","Valid","Invalid","AES AVX","ModRM:reg (w)","ModRM:r/m (r)","NA","NA","","Perform the InvMixColumn transformation on a 128-bit round key from xmm2/m128 and store the result in xmm1."
 "AESKEYGENASSIST xmm1, xmm2/m128, imm8","66 0F 3A DF /r ib","Valid","Valid","Invalid","AES","ModRM:reg (w)","ModRM:r/m (r)","imm8","NA","","Assist in AES round key generation using an 8 bits Round Constant (RCON) specified in the immediate byte, operating on 128 bits of data specified in xmm2/m128 and stores the result in xmm1."
 "VAESKEYGENASSIST xmm1, xmm2/m128, imm8","VEX.128.66.0F3A.WIG DF /r ib","Valid","Valid","Invalid","AES AVX","ModRM:reg (w)","ModRM:r/m (r)","imm8","NA","","Assist in AES round key generation using 8 bits Round Constant (RCON) specified in the immediate byte, operating on 128 bits of data specified in xmm2/m128 and stores the result in xmm1."
-"AND AL, imm8","24 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","AL AND imm8."
-"AND AX, imm16","25 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","AX AND imm16."
-"AND EAX, imm32","25 id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8","NA","NA","","EAX AND imm32."
-"AND RAX, imm32","REX.W + 25 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8","NA","NA","","RAX AND imm32 sign-extended to 64-bits."
+"AND AL, imm8","24 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","AL AND imm8."
+"AND AX, imm16","25 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","AX AND imm16."
+"AND EAX, imm32","25 id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","EAX AND imm32."
+"AND RAX, imm32","REX.W + 25 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8","NA","NA","","RAX AND imm32 sign-extended to 64-bits."
 "AND r/m8, imm8","80 /4 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","r/m8 AND imm8."
 "AND r/m8 , imm8","REX + 80 /4 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8","NA","NA","","r/m8 AND imm8."
 "AND r/m16, imm16","81 /4 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8","NA","NA","","r/m16 AND imm16."
@@ -1012,16 +1012,16 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "MOV r/m64,Sreg",REX.W + 8C /r,Valid,Invalid,Invalid,,ModRM:r/m (w),ModRM:reg (r),NA,NA,,Move zero extended 16-bit segment register to r/m64.
 "MOV Sreg,r/m16",8E /r,Valid,Valid,Valid,,ModRM:reg (w),ModRM:r/m (r),NA,NA,,Move r/m16 to segment register.
 "MOV Sreg,r/m64",REX.W + 8E /r,Valid,Invalid,Invalid,,ModRM:reg (w),ModRM:r/m (r),NA,NA,,Move lower 16 bits of r/m64 to segment register.
-"MOV AL,moffs8",A0,Valid,Valid,Valid,,AL/AX/EAX/RAX,Moffs,NA,NA,,Move byte at (seg:offset) to AL.
-"MOV AL,moffs8",REX.W + A0,Valid,Invalid,Invalid,,AL/AX/EAX/RAX,Moffs,NA,NA,,Move byte at (offset) to AL.
-"MOV AX,moffs16",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX,Moffs,NA,NA,,Move word at (seg:offset) to AX.
-"MOV EAX,moffs32",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX,Moffs,NA,NA,,Move doubleword at (seg:offset) to EAX.
-"MOV RAX,moffs64",REX.W + A1,Valid,Invalid,Invalid,,AL/AX/EAX/RAX,Moffs,NA,NA,,Move quadword at (offset) to RAX.
-"MOV moffs8,AL",A2,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX,NA,NA,,Move AL to (seg:offset).
-"MOV moffs8,AL",REX.W + A2,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX,NA,NA,,Move AL to (offset).
-"MOV moffs16,AX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX,NA,NA,,Move AX to (seg:offset).
-"MOV moffs32,EAX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX,NA,NA,,Move EAX to (seg:offset).
-"MOV moffs64,RAX",REX.W + A3,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX,NA,NA,,Move RAX to (offset).
+"MOV AL,moffs8",A0,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move byte at (seg:offset) to AL.
+"MOV AL,moffs8",REX.W + A0,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move byte at (offset) to AL.
+"MOV AX,moffs16",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move word at (seg:offset) to AX.
+"MOV EAX,moffs32",A1,Valid,Valid,Valid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move doubleword at (seg:offset) to EAX.
+"MOV RAX,moffs64",REX.W + A1,Valid,Invalid,Invalid,,AL/AX/EAX/RAX (w),Moffs,NA,NA,,Move quadword at (offset) to RAX.
+"MOV moffs8,AL",A2,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AL to (seg:offset).
+"MOV moffs8,AL",REX.W + A2,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AL to (offset).
+"MOV moffs16,AX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move AX to (seg:offset).
+"MOV moffs32,EAX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move EAX to (seg:offset).
+"MOV moffs64,RAX",REX.W + A3,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move RAX to (offset).
 "MOV r8,imm8",B0 +rb ib,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
 "MOV r8,imm8",REX + B0 +rb ib,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/65,NA,NA,,Move imm8 to r8.
 "MOV r16,imm16",B8 +rw iw,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/66,NA,NA,,Move imm16 to r16.
@@ -1334,10 +1334,10 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "NOT r/m16","F7 /2","Valid","Valid","Valid","","ModRM:r/m (r, w)","NA","NA","NA","","Reverse each bit of r/m16."
 "NOT r/m32","F7 /2","Valid","Valid","Valid","","ModRM:r/m (r, w)","NA","NA","NA","","Reverse each bit of r/m32."
 "NOT r/m64","REX.W + F7 /2","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","NA","NA","NA","","Reverse each bit of r/m64."
-"OR AL, imm8","0C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AL OR imm8."
-"OR AX, imm16","0D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AX OR imm16."
-"OR EAX, imm32","0D id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","EAX OR imm32."
-"OR RAX, imm32","REX.W + 0D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","RAX OR imm32 (sign-extended)."
+"OR AL, imm8","0C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","AL OR imm8."
+"OR AX, imm16","0D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","AX OR imm16."
+"OR EAX, imm32","0D id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","EAX OR imm32."
+"OR RAX, imm32","REX.W + 0D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","RAX OR imm32 (sign-extended)."
 "OR r/m8, imm8","80 /1 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m8 OR imm8."
 "OR r/m8, imm8","REX + 80 /1 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m8 OR imm8."
 "OR r/m16, imm16","81 /1 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m16 OR imm16."
@@ -2364,10 +2364,10 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "SARX r64a, r/m64, r64b","VEX.NDS.LZ.F3.0F38.W1 F7 /r","Valid","Invalid","Invalid","BMI2","ModRM:reg (w)","ModRM:r/m (r)","VEX.vvvv (r)","NA","","Shift r/m64 arithmetically right with count specified in r64b."
 "SHLX r64a, r/m64, r64b","VEX.NDS.LZ.66.0F38.W1 F7 /r","Valid","Invalid","Invalid","BMI2","ModRM:reg (w)","ModRM:r/m (r)","VEX.vvvv (r)","NA","","Shift r/m64 logically left with count specified in r64b."
 "SHRX r64a, r/m64, r64b","VEX.NDS.LZ.F2.0F38.W1 F7 /r","Valid","Invalid","Invalid","BMI2","ModRM:reg (w)","ModRM:r/m (r)","VEX.vvvv (r)","NA","","Shift r/m64 logically right with count specified in r64b."
-"SBB AL, imm8","1C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","Subtract with borrow imm8 from AL."
-"SBB AX, imm16","1D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","Subtract with borrow imm16 from AX."
-"SBB EAX, imm32","1D id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","Subtract with borrow imm32 from EAX."
-"SBB RAX, imm32","REX.W + 1D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","Subtract with borrow sign-extended imm.32 to 64-bits from RAX."
+"SBB AL, imm8","1C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","Subtract with borrow imm8 from AL."
+"SBB AX, imm16","1D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","Subtract with borrow imm16 from AX."
+"SBB EAX, imm32","1D id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","Subtract with borrow imm32 from EAX."
+"SBB RAX, imm32","REX.W + 1D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","Subtract with borrow sign-extended imm.32 to 64-bits from RAX."
 "SBB r/m8, imm8","80 /3 ib","Valid","Valid","Valid","","ModRM:r/m (w)","imm8/16/32","NA","NA","","Subtract with borrow imm8 from r/m8."
 "SBB r/m8, imm8","REX + 80 /3 ib","Valid","Invalid","Invalid","","ModRM:r/m (w)","imm8/16/32","NA","NA","","Subtract with borrow imm8 from r/m8."
 "SBB r/m16, imm16","81 /3 iw","Valid","Valid","Valid","","ModRM:r/m (w)","imm8/16/32","NA","NA","","Subtract with borrow imm16 from r/m16."
@@ -2505,10 +2505,10 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "STOSD","AB","Valid","Valid","Valid","","NA","NA","NA","NA","","For legacy mode, store EAX at address ES:(E)DI; For 64-bit mode store EAX at address RDI or EDI."
 "STOSQ","REX.W + AB","Valid","Invalid","Invalid","","NA","NA","NA","NA","","Store RAX at address RDI or EDI."
 "STR r/m16","0F 00 /1","Valid","Valid","Valid","","","","","","","Stores segment selector from TR in r/m16."
-"SUB AL, imm8","2C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/26/32","NA","NA","","Subtract imm8 from AL."
-"SUB AX, imm16","2D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/26/32","NA","NA","","Subtract imm16 from AX."
-"SUB EAX, imm32","2D id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/26/32","NA","NA","","Subtract imm32 from EAX."
-"SUB RAX, imm32","REX.W + 2D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8/26/32","NA","NA","","Subtract imm32 sign-extended to 64-bits from RAX."
+"SUB AL, imm8","2C ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/26/32","NA","NA","","Subtract imm8 from AL."
+"SUB AX, imm16","2D iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/26/32","NA","NA","","Subtract imm16 from AX."
+"SUB EAX, imm32","2D id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/26/32","NA","NA","","Subtract imm32 from EAX."
+"SUB RAX, imm32","REX.W + 2D id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8/26/32","NA","NA","","Subtract imm32 sign-extended to 64-bits from RAX."
 "SUB r/m8, imm8","80 /5 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/26/32","NA","NA","","Subtract imm8 from r/m8."
 "SUB r/m8, imm8","REX + 80 /5 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8/26/32","NA","NA","","Subtract imm8 from r/m8."
 "SUB r/m16, imm16","81 /5 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/26/32","NA","NA","","Subtract imm16 from r/m16."
@@ -2552,10 +2552,10 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "SYSEXIT","REX.W + 0F 35","Valid","Invalid","Invalid","","NA","NA","NA","NA","","Fast return to 64-bit mode privilege level 3 user code."
 "SYSRET","0F 07","Valid","Invalid","Invalid","","NA","NA","NA","NA","","Return to compatibility mode from fast system call"
 "SYSRET","REX.W + 0F 07","Valid","Invalid","Invalid","","NA","NA","NA","NA","","Return to 64-bit mode from fast system call"
-"TEST AL, imm8","A8 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AND imm8 with AL; set SF, ZF, PF according to result."
-"TEST AX, imm16","A9 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AND imm16 with AX; set SF, ZF, PF according to result."
-"TEST EAX, imm32","A9 id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AND imm32 with EAX; set SF, ZF, PF according to result."
-"TEST RAX, imm32","REX.W + A9 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AND imm32 sign-extended to 64-bits with RAX; set SF, ZF, PF according to result."
+"TEST AL, imm8","A8 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r)","imm8/16/32","NA","NA","","AND imm8 with AL; set SF, ZF, PF according to result."
+"TEST AX, imm16","A9 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r)","imm8/16/32","NA","NA","","AND imm16 with AX; set SF, ZF, PF according to result."
+"TEST EAX, imm32","A9 id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r)","imm8/16/32","NA","NA","","AND imm32 with EAX; set SF, ZF, PF according to result."
+"TEST RAX, imm32","REX.W + A9 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r)","imm8/16/32","NA","NA","","AND imm32 sign-extended to 64-bits with RAX; set SF, ZF, PF according to result."
 "TEST r/m8, imm8","F6 /0 ib","Valid","Valid","Valid","","ModRM:r/m (r)","imm8/16/32","NA","NA","","AND imm8 with r/m8; set SF, ZF, PF according to result."
 "TEST r/m8, imm8","REX + F6 /0 ib","Valid","Invalid","Invalid","","ModRM:r/m (r)","imm8/16/32","NA","NA","","AND imm8 with r/m8; set SF, ZF, PF according to result."
 "TEST r/m16, imm16","F7 /0 iw","Valid","Valid","Valid","","ModRM:r/m (r)","imm8/16/32","NA","NA","","AND imm16 with r/m16; set SF, ZF, PF according to result."
@@ -3525,12 +3525,12 @@ XRELEASE,F3,Valid,Valid,Invalid,HLE,,,,,,A hint used with an “XRELEASE-enabled
 "XADD r/m64, r64","REX.W + 0F C1 /r","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","ModRM:reg (r, w)","NA","NA","","Exchange r64 and r/m64; load sum into r/m64."
 "XBEGIN rel16","C7 F8","Valid","Valid","Invalid","RTM","","","","","","Specifies the start of an RTM region. Provides a 16-bit relative offset to compute the address of the fallback instruction address at which execution resumes following an RTM abort."
 "XBEGIN rel32","C7 F8","Valid","Valid","Invalid","RTM","","","","","","Specifies the start of an RTM region. Provides a 32-bit relative offset to compute the address of the fallback instruction address at which execution resumes following an RTM abort."
-"XCHG AX, r16","90+rw","Valid","Valid","Valid","","AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r16 with AX."
-"XCHG r16, AX","90+rw","Valid","Valid","Valid","","opcode +rd (r, w)","AX/EAX/RAX (r, w)","NA","NA","","Exchange AX with r16."
-"XCHG EAX, r32","90+rd","Valid","Valid","Valid","","AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r32 with EAX."
-"XCHG RAX, r64","REX.W + 90+rd","Valid","Invalid","Invalid","","AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r64 with RAX."
-"XCHG r32, EAX","90+rd","Valid","Valid","Valid","","opcode +rd (r, w)","AX/EAX/RAX (r, w)","NA","NA","","Exchange EAX with r32."
-"XCHG r64, RAX","REX.W + 90+rd","Valid","Invalid","Invalid","","opcode +rd (r, w)","AX/EAX/RAX (r, w)","NA","NA","","Exchange RAX with r64."
+"XCHG AX, r16","90+rw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r16 with AX."
+"XCHG r16, AX","90+rw","Valid","Valid","Valid","","opcode +rd (r, w)","AL/AX/EAX/RAX (r, w)","NA","NA","","Exchange AX with r16."
+"XCHG EAX, r32","90+rd","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r32 with EAX."
+"XCHG RAX, r64","REX.W + 90+rd","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","opcode +rd (r, w)","NA","NA","","Exchange r64 with RAX."
+"XCHG r32, EAX","90+rd","Valid","Valid","Valid","","opcode +rd (r, w)","AL/AX/EAX/RAX (r, w)","NA","NA","","Exchange EAX with r32."
+"XCHG r64, RAX","REX.W + 90+rd","Valid","Invalid","Invalid","","opcode +rd (r, w)","AL/AX/EAX/RAX (r, w)","NA","NA","","Exchange RAX with r64."
 "XCHG r/m8, r8","86 /r","Valid","Valid","Valid","","ModRM:r/m (r, w)","ModRM:reg (r)","NA","NA","","Exchange r8 (byte register) with byte from r/m8."
 "XCHG r/m8, r8","REX + 86 /r","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","ModRM:reg (r)","NA","NA","","Exchange r8 (byte register) with byte from r/m8."
 "XCHG r8, r/m8","86 /r","Valid","Valid","Valid","","ModRM:reg (w)","ModRM:r/m (r)","NA","NA","","Exchange byte from r/m8 with r8 (byte register)."
@@ -3546,10 +3546,10 @@ XRELEASE,F3,Valid,Valid,Invalid,HLE,,,,,,A hint used with an “XRELEASE-enabled
 "XLAT m8","D7","Valid","Valid","Valid","","NA","NA","NA","NA","","Set AL to memory byte DS:[(E)BX + unsigned AL]."
 "XLATB","D7","Valid","Valid","Valid","","NA","NA","NA","NA","","Set AL to memory byte DS:[(E)BX + unsigned AL]."
 "XLATB","REX.W + D7","Valid","Invalid","Invalid","","NA","NA","NA","NA","","Set AL to memory byte [RBX + unsigned AL]."
-"XOR AL, imm8","34 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AL XOR imm8."
-"XOR AX, imm16","35 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","AX XOR imm16."
-"XOR EAX, imm32","35 id","Valid","Valid","Valid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","EAX XOR imm32."
-"XOR RAX, imm32","REX.W + 35 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX","imm8/16/32","NA","NA","","RAX XOR imm32 (sign-extended)."
+"XOR AL, imm8","34 ib","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","AL XOR imm8."
+"XOR AX, imm16","35 iw","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","AX XOR imm16."
+"XOR EAX, imm32","35 id","Valid","Valid","Valid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","EAX XOR imm32."
+"XOR RAX, imm32","REX.W + 35 id","Valid","Invalid","Invalid","","AL/AX/EAX/RAX (r, w)","imm8/16/32","NA","NA","","RAX XOR imm32 (sign-extended)."
 "XOR r/m8, imm8","80 /6 ib","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m8 XOR imm8."
 "XOR r/m8, imm8","REX + 80 /6 ib","Valid","Invalid","Invalid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m8 XOR imm8."
 "XOR r/m16, imm16","81 /6 iw","Valid","Valid","Valid","","ModRM:r/m (r, w)","imm8/16/32","NA","NA","","r/m16 XOR imm16."
