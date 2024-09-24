@@ -1023,15 +1023,15 @@ FXTRACT,D9 F4,Valid,Valid,Valid,,,,,,,"Separate value in ST(0) into exponent and
 "MOV moffs32,EAX",A3,Valid,Valid,Valid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move EAX to (seg:offset).
 "MOV moffs64,RAX",REX.W + A3,Valid,Invalid,Invalid,,Moffs (w),AL/AX/EAX/RAX (r),NA,NA,,Move RAX to (offset).
 "MOV r8,imm8",B0 +rb ib,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
-"MOV r8,imm8",REX + B0 +rb ib,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/65,NA,NA,,Move imm8 to r8.
-"MOV r16,imm16",B8 +rw iw,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/66,NA,NA,,Move imm16 to r16.
-"MOV r32,imm32",B8 +rd id,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/67,NA,NA,,Move imm32 to r32.
-"MOV r64,imm64",REX.W + B8 +rd io,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/68,NA,NA,,Move imm64 to r64.
-"MOV r/m8,imm8",C6 /0 ib,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/69,NA,NA,,Move imm8 to r/m8.
-"MOV r/m8,imm8",REX + C6 /0 ib,Valid,Invalid,Invalid,,ModRM:r/m (w),imm8/16/32/70,NA,NA,,Move imm8 to r/m8.
-"MOV r/m16,imm16",C7 /0 iw,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/71,NA,NA,,Move imm16 to r/m16.
-"MOV r/m32,imm32",C7 /0 id,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/72,NA,NA,,Move imm32 to r/m32.
-"MOV r/m64,imm32",REX.W + C7 /0 id,Valid,Invalid,Invalid,,ModRM:r/m (w),imm8/16/32/73,NA,NA,,Move imm32 sign extended to 64-bits to r/m64.
+"MOV r8,imm8",REX + B0 +rb ib,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm8 to r8.
+"MOV r16,imm16",B8 +rw iw,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm16 to r16.
+"MOV r32,imm32",B8 +rd id,Valid,Valid,Valid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm32 to r32.
+"MOV r64,imm64",REX.W + B8 +rd io,Valid,Invalid,Invalid,,opcode +rd (w),imm8/16/32/64,NA,NA,,Move imm64 to r64.
+"MOV r/m8,imm8",C6 /0 ib,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm8 to r/m8.
+"MOV r/m8,imm8",REX + C6 /0 ib,Valid,Invalid,Invalid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm8 to r/m8.
+"MOV r/m16,imm16",C7 /0 iw,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm16 to r/m16.
+"MOV r/m32,imm32",C7 /0 id,Valid,Valid,Valid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm32 to r/m32.
+"MOV r/m64,imm32",REX.W + C7 /0 id,Valid,Invalid,Invalid,,ModRM:r/m (w),imm8/16/32/64,NA,NA,,Move imm32 sign extended to 64-bits to r/m64.
 "MOV r32, CR0-CR7",0F 20 /r,Invalid,Valid,Valid,,ModRM:r/m (w),ModRM:reg (r),NA,NA,,Move control register to r32.
 "MOV r64, CR0-CR7",0F 20 /r,Valid,Invalid,Invalid,,ModRM:r/m (w),ModRM:reg (r),NA,NA,,Move extended control register to r64.
 "MOV r64, CR8",REX.R + 0F 20 /0,Valid,Invalid,Invalid,,ModRM:r/m (w),ModRM:reg (r),NA,NA,,Move extended CR8 to r64.
